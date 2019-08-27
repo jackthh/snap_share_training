@@ -3,4 +3,20 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="default_elevation">8dp</dimen>
+
+    <!--Launcher icon-->
+    <dimen name="launcher_icon_size">108dp</dimen>
+    <dimen name="launcher_icon_corner_radius">5dp</dimen>
+
+    <!--Login Screen-->
+    <dimen name="login_tittle_top_margin">70dp</dimen>
+    <dimen name="login__tittle_bottom_margin">70dp</dimen>
+    <dimen name="login_tittle_text_size">52sp</dimen>
+    <dimen name="login_text_width">280dp</dimen>
+    <dimen name="login_text_margin">10dp</dimen>
+    <dimen name="login_text_size">16sp</dimen>
+    <dimen name="login_text_padding">12dp</dimen>
+    <dimen name="login_button_background_stroke">1dp</dimen>
+    <dimen name="login_button_corner_radius">4dp</dimen>
+
 </resources>
