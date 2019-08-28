@@ -3,7 +3,6 @@
     <color name="style_color_primary">#2d5d82</color>
     <color name="style_color_primary_dark">#21425d</color>
     <color name="style_color_accent">#01bcd5</color>
-
     <!--log in background-->
     <color name="start_color">#a46786</color>
     <color name="center_color">#6b3598</color>
@@ -16,5 +15,5 @@
     <color name="transparent_color">#00000000</color>
     <color name="colorGray">#BDBDBD</color>
     <color name="colorWhite">#FFFFFF</color>
-
+    <color name="text_like_counter">#2b5a83</color>
 </resources>

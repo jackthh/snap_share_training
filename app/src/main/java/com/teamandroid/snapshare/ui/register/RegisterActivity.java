@@ -4,17 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.teamandroid.snapshare.R;
-import com.teamandroid.snapshare.data.model.UserRegister;
-import com.teamandroid.snapshare.databinding.ActivityRegisterBinding;
-import com.teamandroid.snapshare.ui.main.MainActivity;
-import com.teamandroid.snapshare.utils.Helper;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.teamandroid.snapshare.R;
+import com.teamandroid.snapshare.data.model.UserRegister;
+import com.teamandroid.snapshare.databinding.ActivityRegisterBinding;
+import com.teamandroid.snapshare.ui.main.MainActivity;
+import com.teamandroid.snapshare.utils.Helper;
 
 public class RegisterActivity extends AppCompatActivity {
     private RegisterViewModel mRegisterViewModel;
@@ -42,14 +42,14 @@ public class RegisterActivity extends AppCompatActivity {
             public void onChanged(UserRegister userRegister) {
                 if (!userRegister.isFilledAll())
                     Helper.showToast(getApplicationContext(),
-                        getResources().getString(R.string.you_must_fill_all_information));
+                            getResources().getString(R.string.you_must_fill_all_information));
                 else if (userRegister.isPasswordLessThanSixCharacter())
                     mBinding.editPassword
-                        .setError(
-                            getResources().getString(R.string.password_must_more_than_6_char));
+                            .setError(
+                                    getResources().getString(R.string.password_must_more_than_6_char));
                 else if (!userRegister.isPasswordSame())
                     mBinding.editRetypePassword
-                        .setError(getResources().getString(R.string.password_must_be_same));
+                            .setError(getResources().getString(R.string.password_must_be_same));
                 else
                     mRegisterViewModel.register(userRegister);
             }
@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                     openMainActivity();
                 else
                     Helper.showToast(getApplicationContext(),
-                        getResources().getString(R.string.fail_try_again_later));
+                            getResources().getString(R.string.fail_try_again_later));
             }
         });
     }

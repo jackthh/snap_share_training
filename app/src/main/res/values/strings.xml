@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Snap Share</string>
-    
+
     <!--Main screen and tabs-->
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
     <string name="title_search">Search</string>
     <string name="title_account">Account</string>
-    
+
     <!--Log in screen-->
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
@@ -26,4 +26,5 @@
     <string name="password_must_be_same">Password must be same</string>
     <string name="please_wait">Please wait ...</string>
     <string name="fail_try_again_later">Fail! Please try again later</string>
+
 </resources>
