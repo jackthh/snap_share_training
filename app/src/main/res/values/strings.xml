@@ -8,13 +8,15 @@
     <string name="title_search">Search</string>
     <string name="title_account">Account</string>
 
-    <!--Log in screen-->
+    <!--Login screen-->
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
-    <string name="login_submit">Log In</string>
+    <string name="login_submit">Login</string>
     <string name="registry_redirect_hint">"Don't have an account?"</string>
     <string name="registry_redirection">Sign up</string>
+    <string name="login_necessity_description">Signing in is required to continue using the app.</string>
 
+    <!--Register screen-->
     <string name="username">Username</string>
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
