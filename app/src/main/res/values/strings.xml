@@ -14,4 +14,16 @@
     <string name="login_submit">Log In</string>
     <string name="registry_redirect_hint">"Don't have an account?"</string>
     <string name="registry_redirection">Sign up</string>
+
+    <string name="username">Username</string>
+    <string name="full_name">Full name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="retype_password">Retype password</string>
+    <string name="register">Register</string>
+    <string name="you_must_fill_all_information">You must fill all information</string>
+    <string name="password_must_more_than_6_char">Password must be more than six character</string>
+    <string name="password_must_be_same">Password must be same</string>
+    <string name="please_wait">Please wait ...</string>
+    <string name="fail_try_again_later">Fail! Please try again later</string>
 </resources>
