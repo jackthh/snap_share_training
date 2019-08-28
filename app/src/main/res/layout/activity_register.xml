@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="RegisterViewModel"
+            type="com.teamandroid.snapshare.ui.register.RegisterViewModel"/>
+    </data>
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/width_logo"
+            android:layout_height="@dimen/height_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_logo"
+            android:layout_marginTop="@dimen/margin_logo"
+            android:src="@drawable/logo"/>
+
+        <EditText
+            android:id="@+id/edit_username"
+            android:text="@={RegisterViewModel.username}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:layout_marginBottom="@dimen/margin_edit_text"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/username"
+            android:padding="@dimen/padding_edit_text"/>
+
+        <EditText
+            android:id="@+id/edit_full_name"
+            android:text="@={RegisterViewModel.fullName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:layout_marginBottom="@dimen/margin_edit_text"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/full_name"
+            android:padding="@dimen/padding_edit_text"/>
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/edit_email"
+            android:text="@={RegisterViewModel.email}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:layout_marginBottom="@dimen/margin_edit_text"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/email"
+            android:padding="@dimen/padding_edit_text"/>
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:text="@={RegisterViewModel.password}"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:layout_marginBottom="@dimen/margin_edit_text"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/password"
+            android:padding="@dimen/padding_edit_text"/>
+
+        <EditText
+            android:id="@+id/edit_retype_password"
+            android:text="@={RegisterViewModel.confirmPassword}"
+            android:layout_width="match_parent"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:layout_marginBottom="@dimen/margin_edit_text"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/retype_password"
+            android:padding="@dimen/padding_edit_text"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_edit_text"
+            android:background="@drawable/background_button_register"
+            android:text="@string/register"
+            android:onClick="@{(v) -> RegisterViewModel.onClickRegisterButton(v)}"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
+</layout>
