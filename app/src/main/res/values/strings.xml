@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">InstaApp</string>
+    <string name="app_name">Snap Share</string>
+    
+    <!--Main screen and tabs-->
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
     <string name="title_search">Search</string>
     <string name="title_account">Account</string>
+    
+    <!--Log in screen-->
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_submit">Log In</string>
+    <string name="registry_redirect_hint">"Don't have an account?"</string>
+    <string name="registry_redirection">Sign up</string>
 </resources>
