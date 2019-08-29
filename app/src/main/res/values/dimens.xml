@@ -26,5 +26,11 @@
     <dimen name="margin_edit_text">16dp</dimen>
     <dimen name="padding_edit_text">10dp</dimen>
     <dimen name="radius_button">4dp</dimen>
+    <dimen name="post_default_margin">8dp</dimen>
+    <dimen name="post_default_padding">8dp</dimen>
+    <dimen name="btn_comment_margin">16dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="image_profile_width">48dp</dimen>
+    <dimen name="image_profile_height">48dp</dimen>
 
 </resources>

@@ -5,13 +5,15 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.teamandroid.snapshare.R;
+import com.teamandroid.snapshare.ui.main.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FragmentManager mFragmentManager = getSupportFragmentManager();
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -19,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    //TODO
                     return true;
                 case R.id.navigation_search:
+                    //TODO
                     return true;
                 case R.id.navigation_add_post:
+                    //TODO
                     return true;
                 case R.id.navigation_account:
+                    //TODO
                     return true;
             }
             return false;
@@ -35,13 +41,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setToolbar();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
-
-    private void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        HomeFragment homeFragment = HomeFragment.newInstance();
+        mFragmentManager.beginTransaction()
+                .add(R.id.content_container, homeFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
