@@ -27,4 +27,5 @@
     <string name="please_wait">Please wait ...</string>
     <string name="fail_try_again_later">Fail! Please try again later</string>
 
+    <string name="like_counter">%d like%s</string>
 </resources>
