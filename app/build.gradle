@@ -34,6 +34,9 @@ ext {
     runner_version = "1.2.0"
     expresso_version = "3.2.0"
     lifecycle_version = "2.0.0"
+    picasso_version = "2.71828"
+    glide_version = "4.9.0"
+    circle_imageview_version = "3.0.1"
 }
 
 dependencies {
@@ -50,6 +53,10 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "de.hdodenhof:circleimageview:$circle_imageview_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
