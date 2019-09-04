@@ -1,6 +1,5 @@
 #Redundant files (idea, gradlew)
 .idea/
-.gradle
 gradlew.*
 gradlew
 
