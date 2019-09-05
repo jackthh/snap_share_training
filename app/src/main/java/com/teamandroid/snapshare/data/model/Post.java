@@ -66,6 +66,34 @@ public class Post {
         return mCreatedAt;
     }
 
+    public void setAuthor(String mAuthor) {
+        this.mAuthor = mAuthor;
+    }
+
+    public void setUserId(String mUserId) {
+        this.mUserId = mUserId;
+    }
+
+    public void setAvatarUrl(String mAvatarUrl) {
+        this.mAvatarUrl = mAvatarUrl;
+    }
+
+    public void setImageUrl(String mImageUrl) {
+        this.mImageUrl = mImageUrl;
+    }
+
+    public void setCaption(String mCaption) {
+        this.mCaption = mCaption;
+    }
+
+    public void setLikeCount(Integer mLikeCount) {
+        this.mLikeCount = mLikeCount;
+    }
+
+    public void setCreatedAt(Timestamp mCreatedAt) {
+        this.mCreatedAt = mCreatedAt;
+    }
+
     @BindingAdapter({"likeCount"})
     public static void loadLikeCounter(TextView textView, Integer likeCount) {
             textView.setText(String.format(textView.getContext().getString(R.string.like_counter),

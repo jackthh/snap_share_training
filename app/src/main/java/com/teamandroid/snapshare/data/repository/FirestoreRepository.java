@@ -53,6 +53,22 @@ public class FirestoreRepository {
                 });
     }
 
+    public void addPost(Post post, final Callback<Void> callback) {
+        mFirestore.collection(Post.POST_COLLECTION).document().set(post)
+            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    callback.onSuccess(null);
+                }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    callback.onFailure(e);
+                }
+            });
+    }
+
     public interface Callback<T> {
 
         void onSuccess(T result);

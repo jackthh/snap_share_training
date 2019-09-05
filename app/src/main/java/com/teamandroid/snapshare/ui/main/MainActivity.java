@@ -1,5 +1,6 @@
 package com.teamandroid.snapshare.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.ui.main.home.HomeFragment;
+import com.teamandroid.snapshare.ui.post.PostActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     //TODO
                     return true;
                 case R.id.navigation_add_post:
-                    //TODO
+                    openPostActivity();
                     return true;
                 case R.id.navigation_account:
                     //TODO
@@ -48,5 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.content_container, homeFragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    private void openPostActivity() {
+        Intent intent = new Intent(this, PostActivity.class);
+        startActivity(intent);
     }
 }

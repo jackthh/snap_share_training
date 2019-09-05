@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="PostViewModel"
+            type="com.teamandroid.snapshare.ui.post.PostViewModel"/>
+    </data>
+
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/style_color_primary">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:title="@string/new_post">
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="@dimen/width_thumbnail_post"
+            android:layout_height="@dimen/height_thumbnail_post"
+            android:layout_below="@id/app_bar"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:scaleType="centerCrop"/>
+
+        <EditText
+            android:id="@+id/edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_post_edit_text"
+            android:layout_alignBottom="@id/thumbnail"
+            android:layout_alignTop="@id/thumbnail"
+            android:layout_below="@+id/thumbnail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@={PostViewModel.description}"
+            android:layout_toRightOf="@id/thumbnail"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/write_description"
+            android:padding="@dimen/padding_post_edit_text"/>
+
+        <Button
+            android:id="@+id/button_add_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/edit_description"
+            android:layout_below="@+id/edit_description"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:onClick="@{(v) -> PostViewModel.onClickShareButton(v)}"
+            android:background="@drawable/background_button_share"
+            android:padding="@dimen/padding_button_share"
+            android:text="@string/share"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
+</layout>
