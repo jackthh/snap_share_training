@@ -19,6 +19,10 @@
     <dimen name="login_button_background_stroke">1dp</dimen>
     <dimen name="login_button_corner_radius">4dp</dimen>
 
+    <!--Profile Tab-->
+    <dimen name="profile_image_size_72dp">72dp</dimen>
+
+    <!--Sign up Screen, Home Tab-->
     <dimen name="margin_logo">50dp</dimen>
     <dimen name="width_logo">100dp</dimen>
     <dimen name="height_logo">100dp</dimen>
