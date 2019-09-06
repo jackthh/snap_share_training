@@ -12,19 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
 
+import java.net.URL;
+
 public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.ViewHolder> {
 
-    private Post[] mData;
+    // TO DO: changes mData to Post[]
+//    private Post[] mData;
+    private String[] mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
 
-    public ProfilePostAdapter(Context context, Post[] mData) {
+    public ProfilePostAdapter(Context context, String[] mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
     }
 
     @NonNull
+
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.profile_post_item, parent, false);
@@ -34,7 +39,7 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // TO DO: Glide
+        // TODO: Glide
         // holder.mImageView.setImageResource(mData[position].getImageUrl());
     }
 
@@ -44,7 +49,7 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
         return mData.length;
     }
 
-    public Post getItem(int position) {
+    public String getItem(int position) {
         return mData[position];
     }
 
