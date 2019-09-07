@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
 
@@ -21,11 +22,13 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     private String[] mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private Context mContext;
 
 
     public ProfilePostAdapter(Context context, String[] mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
+        this.mContext = context;
     }
 
     @NonNull
@@ -41,6 +44,13 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // TODO: Glide
         // holder.mImageView.setImageResource(mData[position].getImageUrl());
+        ImageView imageView = holder.mImageView;
+        String currentUrl = mData[position];
+
+        Glide.with(mContext)
+                .load(currentUrl)
+                .fitCenter()
+                .into(imageView);
     }
 
 

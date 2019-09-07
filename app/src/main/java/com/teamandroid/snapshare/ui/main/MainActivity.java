@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //TODO
+                    Log.i("FRAGMENT SWITCH", "Launched h");
+                    fragment = HomeFragment.newInstance();
                     break;
                 case R.id.navigation_search:
                     //TODO
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_account:
                     Log.i("FRAGMENT SWITCH", "Launched profile");
                     fragment = ProfileFragment.newInstance();
-                    //TODO
                     break;
             }
             return loadFragment(fragment);
