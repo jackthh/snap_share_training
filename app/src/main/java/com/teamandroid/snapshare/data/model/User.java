@@ -1,5 +1,14 @@
 package com.teamandroid.snapshare.data.model;
 
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class User {
     public static final String COLLECTION = "Users";
     public static final String FIELD_ID = "id";
@@ -57,5 +66,19 @@ public class User {
 
     public void setAvatarUrl(String avatarUrl) {
         this.mAvatarUrl = avatarUrl;
+    }
+
+    @BindingAdapter("avatarUrl")
+    public static void loadUserAvatar(ImageView imageView, String imageUrl) {
+        Glide.with(imageView).load(imageUrl).into(imageView);
+    }
+
+    public JSONObject toJson() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(FIELD_ID, mId);
+        jsonObject.put(FIELD_USERNAME, mUsername);
+        jsonObject.put(FIELD_FULL_NAME, mFullName);
+        jsonObject.put(FIELD_AVATAR_URL, mAvatarUrl);
+        return jsonObject;
     }
 }

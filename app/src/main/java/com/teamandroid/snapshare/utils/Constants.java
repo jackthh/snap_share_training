@@ -11,4 +11,5 @@ public class Constants {
     public static final String FOLDER_POST_IMAGE = "Post Image";
     public static final int ZERO = 0;
 
+    public static final String AlGOLIA_INDEX = "Users";
 }

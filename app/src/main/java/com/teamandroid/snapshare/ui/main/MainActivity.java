@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.ui.main.home.HomeFragment;
+import com.teamandroid.snapshare.ui.main.search.SearchFragment;
 import com.teamandroid.snapshare.ui.post.PostActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,13 +22,24 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //TODO
+                    HomeFragment homeFragment = HomeFragment.newInstance();
+                    mFragmentManager.beginTransaction()
+                            .replace(R.id.content_container, homeFragment)
+                            .addToBackStack(null)
+                            .commit();
                     return true;
                 case R.id.navigation_search:
                     //TODO
+                    SearchFragment searchFragment = SearchFragment.newInstance();
+                    mFragmentManager.beginTransaction()
+                            .replace(R.id.content_container, searchFragment)
+                            .addToBackStack(null)
+                            .commit();
                     return true;
+
                 case R.id.navigation_add_post:
                     openPostActivity();
                     return true;
@@ -35,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     //TODO
                     return true;
             }
+
             return false;
         }
     };
