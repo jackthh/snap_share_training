@@ -138,7 +138,7 @@ public class ProfileFragment extends Fragment implements ProfilePostAdapter.Item
             Log.i("PRELOAD REQUEST BUILDER", item.toString().toUpperCase());
             return Glide.with(Objects.requireNonNull(getContext()))
                     .load(item.toString())
-                    .error(Glide.with(getContext()).load(R.drawable.ic_search_black_24dp));
+                    .placeholder(R.drawable.ic_search_black_24dp);
         }
     }
 }
