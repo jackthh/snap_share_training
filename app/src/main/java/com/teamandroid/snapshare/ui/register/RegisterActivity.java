@@ -14,6 +14,7 @@ import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.UserRegister;
 import com.teamandroid.snapshare.databinding.ActivityRegisterBinding;
 import com.teamandroid.snapshare.ui.main.MainActivity;
+import com.teamandroid.snapshare.utils.CommonUtils;
 import com.teamandroid.snapshare.utils.Helper;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -33,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
         mBinding.setLifecycleOwner(this);
         mRegisterViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         mBinding.setRegisterViewModel(mRegisterViewModel);
-        mProgressDialog = new ProgressDialog(this);
     }
 
     private void listenRegister() {
@@ -43,7 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!userRegister.isFilledAll())
                     Helper.showToast(getApplicationContext(),
                             getResources().getString(R.string.you_must_fill_all_information));
-                else if (userRegister.isPasswordLessThanSixCharacter())
+                else if (!CommonUtils.isEmailValid(userRegister.getEmail())) {
+                    mBinding.editEmail.setError(getResources().getString(R.string.invalid_mail));
+                } else if (userRegister.isPasswordLessThanSixCharacter())
                     mBinding.editPassword
                             .setError(
                                     getResources().getString(R.string.password_must_more_than_6_char));
@@ -76,13 +78,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showProgressDialog() {
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage(getResources().getString(R.string.please_wait));
+        mProgressDialog = CommonUtils.createLoadingDialog(this);
         mProgressDialog.show();
     }
 
     private void hideProgressDialog() {
-        mProgressDialog.dismiss();
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.cancel();
+        }
     }
 
     private void openMainActivity() {
