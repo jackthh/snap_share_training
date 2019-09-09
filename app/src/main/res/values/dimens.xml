@@ -10,7 +10,7 @@
 
     <!--Login Screen-->
     <dimen name="login_tittle_top_margin">70dp</dimen>
-    <dimen name="login__tittle_bottom_margin">70dp</dimen>
+    <dimen name="login_tittle_bottom_margin">70dp</dimen>
     <dimen name="login_tittle_text_size">52sp</dimen>
     <dimen name="login_text_width">280dp</dimen>
     <dimen name="login_text_margin">10dp</dimen>
@@ -19,11 +19,10 @@
     <dimen name="login_button_background_stroke">1dp</dimen>
     <dimen name="login_button_corner_radius">4dp</dimen>
 
-    <dimen name="margin_logo">50dp</dimen>
-    <dimen name="width_logo">100dp</dimen>
-    <dimen name="height_logo">100dp</dimen>
+    <dimen name="sign_up_title_top_margin">50dp</dimen>
+    <dimen name="sign_up_title_bottom_margin">30dp</dimen>
     <dimen name="width_stroke_edit_text">1dp</dimen>
-    <dimen name="margin_edit_text">16dp</dimen>
+    <dimen name="margin_edit_text">10dp</dimen>
     <dimen name="padding_edit_text">10dp</dimen>
     <dimen name="radius_button">4dp</dimen>
     <dimen name="post_default_margin">8dp</dimen>

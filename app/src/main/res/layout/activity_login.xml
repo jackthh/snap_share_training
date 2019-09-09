@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="loginViewModel"
             type="com.teamandroid.snapshare.ui.login.LoginViewModel" />
@@ -11,9 +12,9 @@
         android:id="@+id/relative_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:background="@drawable/gradient_log_in_background"
         android:gravity="center_horizontal"
-        android:background="@drawable/gradient_log_in_background">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/text_app_name"
@@ -22,84 +23,90 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/login_tittle_top_margin"
-            android:layout_marginBottom="@dimen/login__tittle_bottom_margin"
+            android:layout_marginBottom="@dimen/login_tittle_bottom_margin"
+            android:fontFamily="@font/scriptin"
             android:text="@string/app_name"
-            android:textSize="@dimen/login_tittle_text_size"
             android:textColor="@color/white_color"
-            android:textStyle="bold"
-            android:fontFamily="@font/scriptin"/>
+            android:textSize="@dimen/login_tittle_text_size"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_text_user"
-            android:layout_below="@id/text_app_name"
             android:layout_width="@dimen/login_text_width"
             android:layout_height="wrap_content"
+            android:layout_below="@id/text_app_name"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/login_text_margin"
-            android:padding="@dimen/login_text_padding"
+            android:background="@color/text_background_color"
+            android:fontFamily="@font/freight_sans_medium"
             android:hint="@string/login_username_hint"
-            android:textSize="@dimen/login_text_size"
+            android:padding="@dimen/login_text_padding"
+            android:text="@={loginViewModel.email}"
             android:textColor="@color/milk_color"
             android:textColorHint="@color/milk_color"
-            android:fontFamily="@font/freight_sans_medium"
-            android:background="@color/text_background_color"/>
+            android:textSize="@dimen/login_text_size" />
 
         <EditText
             android:id="@+id/edit_text_password"
-            android:layout_below="@id/edit_text_user"
             android:layout_width="@dimen/login_text_width"
             android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_user"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/login_text_margin"
-            android:padding="@dimen/login_text_padding"
+            android:background="@color/text_background_color"
+            android:fontFamily="@font/freight_sans_medium"
             android:hint="@string/login_password_hint"
-            android:textSize="@dimen/login_text_size"
+            android:inputType="textPassword"
+            android:padding="@dimen/login_text_padding"
+            android:text="@={loginViewModel.password}"
             android:textColor="@color/milk_color"
             android:textColorHint="@color/milk_color"
-            android:fontFamily="@font/freight_sans_medium"
-            android:background="@color/text_background_color" />
+            android:textSize="@dimen/login_text_size" />
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_below="@id/edit_text_password"
             android:layout_width="@dimen/login_text_width"
             android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_password"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/login_text_margin"
-            android:text="@string/login_submit"
-            android:textSize="@dimen/login_text_size"
-            android:textColor="@color/light_grey_color"
-            android:textAllCaps="false"
-            android:fontFamily="@font/freight_sans_medium"
             android:background="@drawable/transparent_background_bordered"
-            android:onClick="onLoginClicked"/>
+            android:fontFamily="@font/freight_sans_medium"
+            android:onClick="@{loginViewModel::onLoginClicked}"
+            android:text="@string/login_submit"
+            android:textAllCaps="false"
+            android:textColor="@color/light_grey_color"
+            android:textSize="@dimen/login_text_size" />
 
         <TableRow
-            android:layout_above="@id/linear_sign_up_redirection"
             android:layout_width="match_parent"
             android:layout_height="@dimen/login_button_background_stroke"
-            android:background="@color/light_grey_color"/>
+            android:layout_above="@id/linear_sign_up_redirection"
+            android:background="@color/light_grey_color" />
 
         <LinearLayout
             android:id="@+id/linear_sign_up_redirection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/registry_redirect_hint"
-                android:fontFamily="@font/freight_sans_medium"/>
+                android:fontFamily="@font/freight_sans_medium"
+                android:text="@string/registry_redirect_hint" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/transparent_color"
+                android:fontFamily="@font/freight_sans_medium"
                 android:text="@string/registry_redirection"
                 android:textColor="@color/milk_color"
-                android:textStyle="bold"
-                android:fontFamily="@font/freight_sans_medium"
-                android:background="@color/transparent_color"/>
+                android:onClick="launchRegisterActivity"
+                android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

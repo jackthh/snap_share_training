@@ -9,12 +9,13 @@
     <string name="title_account">Account</string>
 
     <!--Login screen-->
-    <string name="login_username_hint">Username</string>
+    <string name="login_username_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="login_submit">Login</string>
     <string name="registry_redirect_hint">"Don't have an account?"</string>
     <string name="registry_redirection">Sign up</string>
     <string name="login_necessity_description">Signing in is required to continue using the app.</string>
+    <string name="invalid_email_password">Please provide a valid email and password.</string>
 
     <!--Register screen-->
     <string name="username">Username</string>
@@ -24,6 +25,7 @@
     <string name="retype_password">Retype password</string>
     <string name="register">Register</string>
     <string name="you_must_fill_all_information">You must fill all information</string>
+    <string name="invalid_mail">Email is invalid</string>
     <string name="password_must_more_than_6_char">Password must be more than six character</string>
     <string name="password_must_be_same">Password must be same</string>
     <string name="please_wait">Please wait ...</string>
@@ -35,7 +37,9 @@
     <string name="share">Share</string>
     <string name="new_post">New Post</string>
 
+    <!--Search Screen-->
     <string name="search_hint">Search user</string>
     <string name="search_result">Found %d result%s</string>
     <string name="search_no_resutl">No result is found</string>
+    <string name="incorrect_email_password">Email or Password is incorrect</string>
 </resources>
