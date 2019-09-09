@@ -42,4 +42,5 @@
     <string name="search_result">Found %d result%s</string>
     <string name="search_no_resutl">No result is found</string>
     <string name="incorrect_email_password">Email or Password is incorrect</string>
+    <string name="log_out">Log out</string>
 </resources>

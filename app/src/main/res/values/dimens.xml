@@ -48,4 +48,5 @@
     <dimen name="card_user_padding">8dp</dimen>
     <dimen name="card_username_text_size">24sp</dimen>
     <dimen name="card_username_margin_start">16dp</dimen>
+    <dimen name="user_list_margin_top">36dp</dimen>
 </resources>

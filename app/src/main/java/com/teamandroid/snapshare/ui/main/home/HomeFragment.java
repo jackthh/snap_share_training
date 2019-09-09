@@ -1,7 +1,11 @@
 package com.teamandroid.snapshare.ui.main.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -16,8 +20,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
+import com.teamandroid.snapshare.ui.login.LoginActivity;
 
 import java.util.List;
 
@@ -45,6 +51,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        setHasOptionsMenu(true);
         initView(rootView);
         setToolbar();
         return rootView;
@@ -72,6 +79,12 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) fragmentActivity).setSupportActionBar(mToolbar);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
     private void initView(View view) {
         mToolbar = view.findViewById(R.id.toolbar);
     }
@@ -83,6 +96,19 @@ public class HomeFragment extends Fragment {
                 mAdapter.setPostList(posts);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getContext(), LoginActivity.class));
+                if (getActivity() != null) getActivity().finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
