@@ -13,27 +13,32 @@ public class PostViewModel extends ViewModel {
     private MutableLiveData<List<Post>> mPosts;
     private FirestoreRepository mFirestoreRepository = FirestoreRepository.getInstance();
 
-    public LiveData<List<Post>> getPosts() {
-        if (mPosts == null) {
-            mPosts = new MutableLiveData<>();
-            loadPosts();
+        public LiveData<List<Post>> getPosts() {
+            if (mPosts == null) {
+                mPosts = new MutableLiveData<>();
+                loadPosts();
+            }
+            return mPosts;
         }
-        return mPosts;
-    }
 
-    private void loadPosts() {
-        mFirestoreRepository.getAllPosts(new FirestoreRepository.Callback<List<Post>>() {
-            @Override
-            public void onSuccess(List<Post> result) {
-                mPosts.setValue(result);
-            }
+        private void loadPosts() {
+            mFirestoreRepository.getAllPosts(new FirestoreRepository.Callback<List<Post>>() {
+                @Override
+                public void onSuccess(List<Post> result) {
+                    mPosts.setValue(result);
+                }
 
-            @Override
-            public void onFailure(Exception e) {
-                //TODO handle when fetching fail
-            }
-        });
-    }
+                @Override
+                public void onFailure(Exception e) {
+                    //TODO handle when fetching fail
+                }
+            });
+        }
+
+
+        public void openDetailedPost() {
+
+        }
 
 }
 

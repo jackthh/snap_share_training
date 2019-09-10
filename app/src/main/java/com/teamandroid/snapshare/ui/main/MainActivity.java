@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Log.i("FRAGMENT SWITCH", "Launched h");
+                    Log.i("FRAGMENT SWITCH", "Launched home");
                     fragment = HomeFragment.newInstance();
                     break;
                 case R.id.navigation_search:
@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_account:
                     Log.i("FRAGMENT SWITCH", "Launched profile");
                     fragment = ProfileFragment.newInstance();
+                    //TODO: pass currentUser to Profile
+//                    Bundle args = new Bundle();
+//                    args.putString();
                     break;
             }
             return loadFragment(fragment);
