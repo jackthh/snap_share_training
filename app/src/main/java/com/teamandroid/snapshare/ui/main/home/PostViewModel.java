@@ -10,14 +10,14 @@ import com.teamandroid.snapshare.data.repository.FirestoreRepository;
 import java.util.List;
 
 public class PostViewModel extends ViewModel {
-    private MutableLiveData<List<Post>> mPosts;
+    private MutableLiveData<List<Post>> mPosts = new MutableLiveData<>();
     private FirestoreRepository mFirestoreRepository = FirestoreRepository.getInstance();
 
+    public PostViewModel() {
+        loadPosts();
+    }
+
     public LiveData<List<Post>> getPosts() {
-        if (mPosts == null) {
-            mPosts = new MutableLiveData<>();
-            loadPosts();
-        }
         return mPosts;
     }
 
