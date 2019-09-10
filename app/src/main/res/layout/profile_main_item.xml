@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="ProfileViewModel"
-            type="com.teamandroid.snapshare.ui.main.profile.ProfileViewModel" />
+            name="Post"
+            type="com.teamandroid.snapshare.data.model.Post" />
     </data>
 
     <androidx.cardview.widget.CardView android:orientation="vertical"
