@@ -26,21 +26,24 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
 import com.teamandroid.snapshare.databinding.FragmentProfileBinding;
+import com.teamandroid.snapshare.generated.callback.OnClickListener;
 import com.teamandroid.snapshare.utils.Constants;
 
 import java.util.List;
 
 
-public class ProfileFragment extends Fragment implements ProfilePostAdapter.ItemClickListener{
-    private final int colNumb = R.dimen.profile_column_number;
+public class ProfileFragment extends Fragment {
+    private final int colNumb = 3;
 
-    private FragmentProfileBinding mBinding;
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
     private ProfilePostAdapter mProfilePostAdapter;
+
+    private FragmentProfileBinding mBinding;
     private ProfileViewModel mProfileViewModel;
 
     public ProfileFragment() {
+        // Required empty public constructor
     }
 
 
@@ -55,49 +58,49 @@ public class ProfileFragment extends Fragment implements ProfilePostAdapter.Item
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        //View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
-        View rootView = mBinding.getRoot();
+        init(mBinding.getRoot());
 
-        init(rootView);
-
-        return rootView;
+        return mBinding.getRoot();
     }
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mProfileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
+        mBinding.setProfileViewModel(mProfileViewModel);
+        mBinding.setLifecycleOwner(this);
+        mProfileViewModel.getUserPosts();
+        //TODO: set onClickListener
         handleArguments();
         listenToPosts();
     }
 
 
-    @Override
-    public void onItemClick(View view, int position) {
-        // TODO: add to back stack, open detail fragment
+//    @Override
+//    public void onItemClick(View view, int position) {
+//        // TODO: add to back stack, open detail fragment
 //        Toast.makeText(getContext(), "Clicked at: " + position,  Toast.LENGTH_SHORT).show();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_container, ProfileDetailedFragment.newInstance());
-        fragmentTransaction.addToBackStack(this.getClass().getName());
-        fragmentTransaction.commit();
-    }
+//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.content_container, ProfileDetailedFragment.newInstance());
+//        fragmentTransaction.addToBackStack(this.getClass().getName());
+//        fragmentTransaction.commit();
+//    }
 
 
 
     private void init(View rootView) {
-        mProfileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
-
-        mBinding.setProfileViewModel(mProfileViewModel);
-        mBinding.setLifecycleOwner(this);
-
         mToolbar = rootView.findViewById(R.id.toolbar);
         setToolbar();
 
         mRecyclerView = rootView.findViewById(R.id.profile_posts_list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), colNumb));
-        mProfilePostAdapter = new ProfilePostAdapter(getContext());
-        mProfilePostAdapter.setItemClickListener(this);
+
+        mProfilePostAdapter = new ProfilePostAdapter();
         mRecyclerView.setAdapter(mProfilePostAdapter);
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.teamandroid.snapshare.ui.main.profile;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,6 +15,7 @@ import com.teamandroid.snapshare.utils.Constants;
 import java.util.List;
 
 public class ProfileViewModel extends ViewModel {
+    private final String TAG = ProfileViewModel.class.getName();
     private MutableLiveData<List<Post>> mPosts = new MutableLiveData<>();
     private MutableLiveData<User> mProfileUser = new MutableLiveData<>();
     private FirestoreRepository mFirestoreRepository = FirestoreRepository.getInstance();
@@ -46,8 +48,8 @@ public class ProfileViewModel extends ViewModel {
 
 
     public MutableLiveData<List<Post>> getUserPosts() {
-        if (mPosts != null) {
-            getPosts(mProfileUser.getValue().getId());
+        if (mPosts == null) {
+            mPosts = new MutableLiveData<>();
         }
         return mPosts;
     }
@@ -58,6 +60,7 @@ public class ProfileViewModel extends ViewModel {
             @Override
             public void onSuccess(List<Post> result) {
                 mPosts.setValue(result);
+
             }
 
             @Override

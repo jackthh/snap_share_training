@@ -1,65 +1,42 @@
 package com.teamandroid.snapshare.ui.main.profile;
 
-import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
+import com.teamandroid.snapshare.databinding.ProfileMainItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.ViewHolder> {
-
     private List<Post> mData = new ArrayList<>();
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
-    private Context mContext;
 
-
-    public ProfilePostAdapter(Context context) {
-        this.mInflater = LayoutInflater.from(context);
-        this.mContext = context;
-    }
 
     @NonNull
-
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.profile_main_item, parent, false);
-        return new ViewHolder(view);
+        ProfileMainItemBinding itemBinding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),
+                R.layout.profile_main_item, parent, false);
+        return new ViewHolder(itemBinding);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // TODO: Glide
-        ImageView imageView = holder.mImageView;
-        String currentUrl = mData.get(position).getImageUrl();
-
-        Glide.with(mContext)
-                .load(currentUrl)
-                .centerCrop()
-                .placeholder(R.drawable.ic_launcher)
-                .into(imageView);
+        holder.mProfileMainItemBinding.setPost(mData.get(position));
     }
 
 
     @Override
     public int getItemCount() {
-        return mData.size();
-    }
-
-
-    public void setItemClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
+        return mData == null ? 0 : mData.size();
     }
 
 
@@ -68,26 +45,12 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
         notifyDataSetChanged();
     }
 
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private ProfileMainItemBinding mProfileMainItemBinding;
 
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView mImageView;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            mImageView = itemView.findViewById(R.id.profile_post_image);
-            itemView.setOnClickListener(this);
-        }
-
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-
+        public ViewHolder(@NonNull ProfileMainItemBinding itemBinding) {
+            super(itemBinding.getRoot());
+            mProfileMainItemBinding = itemBinding;
         }
     }
 }
