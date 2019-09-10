@@ -13,21 +13,19 @@ import com.bumptech.glide.Glide;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
 
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.ViewHolder> {
 
-    // TO DO: changes mData to Post[]
-//    private Post[] mData;
-    private String[] mData;
+    private List<Post> mData = new ArrayList<>();
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Context mContext;
 
 
-    public ProfilePostAdapter(Context context, String[] mData) {
+    public ProfilePostAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = mData;
         this.mContext = context;
     }
 
@@ -35,7 +33,7 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.profile_post_item, parent, false);
+        View view = mInflater.inflate(R.layout.profile_main_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -43,34 +41,38 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // TODO: Glide
-        // holder.mImageView.setImageResource(mData[position].getImageUrl());
         ImageView imageView = holder.mImageView;
-        String currentUrl = mData[position];
+        String currentUrl = mData.get(position).getImageUrl();
 
         Glide.with(mContext)
                 .load(currentUrl)
-                .fitCenter()
+                .centerCrop()
+                .placeholder(R.drawable.ic_launcher)
                 .into(imageView);
     }
 
 
     @Override
     public int getItemCount() {
-        return mData.length;
+        return mData.size();
     }
 
-    public String getItem(int position) {
-        return mData[position];
-    }
 
-    void setItemClickListener(ItemClickListener itemClickListener) {
+    public void setItemClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
+    }
+
+
+    public void setData(List<Post> posts) {
+        this.mData = posts;
+        notifyDataSetChanged();
     }
 
 
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView mImageView;
