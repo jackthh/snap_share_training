@@ -64,7 +64,7 @@ public class FirestoreRepository {
 
         mFirestore.collection(Post.POST_COLLECTION)
                 .whereEqualTo(Post.FIELD_USER_ID, userId)
-                .orderBy(Post.FIELD_CREATED_AT, Query.Direction.DESCENDING)
+                .orderBy(Post.FIELD_CREATED_AT,Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

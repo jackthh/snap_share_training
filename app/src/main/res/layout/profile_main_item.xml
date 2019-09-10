@@ -21,7 +21,9 @@
         <ImageView
             android:id="@+id/profile_post_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            imageUrl="@{Post.imageUrl}"/>
 
     </androidx.cardview.widget.CardView>
 </layout>

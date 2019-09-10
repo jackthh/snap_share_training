@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.teamandroid.snapshare.R;
 import com.teamandroid.snapshare.data.model.Post;
 import com.teamandroid.snapshare.databinding.FragmentProfileBinding;
@@ -72,8 +74,15 @@ public class ProfileFragment extends Fragment {
         mProfileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
         mBinding.setProfileViewModel(mProfileViewModel);
         mBinding.setLifecycleOwner(this);
-        mProfileViewModel.getUserPosts();
-        //TODO: set onClickListener
+
+        //FIXME: hard link from GoogleAuth
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String id = "";
+        if (user != null) {
+            id = user.getUid();
+        }
+        mProfileViewModel.getPosts(id);
+
         handleArguments();
         listenToPosts();
     }
@@ -109,10 +118,6 @@ public class ProfileFragment extends Fragment {
         // Handle passed arguments to define running mode
 //        Bundle args = getArguments();
         Bundle args = new Bundle();
-        args.putString(Constants.PROFILE_USER_ID, "wed1EsMlVC62jmzvgyL8");
-        args.putString(Constants.PROFILE_USER_DISPLAY_NAME, "Huy Le");
-        args.putString(Constants.PROFILE_USER_GIVEN_NAME, "huylv");
-        args.putString(Constants.PROFILE_USER_AVATAR, "https://storage.googleapis.com/firestorequickstarts.appspot.com/food_14.png");
         if (mProfileViewModel.displayingCurrentUser(args)) {
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
             mProfileViewModel.setProfileUser(account);

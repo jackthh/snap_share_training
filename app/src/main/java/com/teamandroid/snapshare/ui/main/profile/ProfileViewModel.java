@@ -55,11 +55,12 @@ public class ProfileViewModel extends ViewModel {
     }
 
 
-    private void getPosts(String userId) {
+    public void getPosts(String userId) {
         mFirestoreRepository.getPostsOf(userId,new FirestoreRepository.Callback<List<Post>>() {
             @Override
             public void onSuccess(List<Post> result) {
                 mPosts.setValue(result);
+                Log.d(TAG,result.size()+ "hiep" );
 
             }
 
