@@ -11,4 +11,11 @@ public class Constants {
     public static final String FOLDER_POST_IMAGE = "Post Image";
     public static final int ZERO = 0;
 
+    /*Profile*/
+    public static final String PROFILE_USER_TAG = "CurrentUSer";
+    public static final String PROFILE_USER_ID = "userId";
+    public static final String PROFILE_USER_GIVEN_NAME = "userGivenName";
+    public static final String PROFILE_USER_DISPLAY_NAME = "userDisplayName";
+    public static final String PROFILE_USER_AVATAR = "userAvatarUrl";
+
 }

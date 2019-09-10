@@ -35,4 +35,6 @@
     <string name="share">Share</string>
     <string name="new_post">New Post</string>
 
+    <!--Profile Tab-->
+    <string name="profile_max_preload">6</string>
 </resources>

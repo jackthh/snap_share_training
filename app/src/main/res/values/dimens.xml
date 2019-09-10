@@ -21,6 +21,7 @@
 
     <!--Profile Tab-->
     <dimen name="profile_image_size_72dp">72dp</dimen>
+    <dimen name="profile_column_number">3</dimen>
 
     <!--Sign up Screen, Home Tab-->
     <dimen name="margin_logo">50dp</dimen>

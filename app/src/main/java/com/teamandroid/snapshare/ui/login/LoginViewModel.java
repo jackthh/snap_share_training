@@ -27,7 +27,7 @@ public class LoginViewModel extends ViewModel {
         try {
             GoogleSignInAccount account = task.getResult(ApiException.class);
             mIsSigned.postValue(true);
-            // For later use
+            //FIXME: Save data for later uses
             String personName = account.getDisplayName();
             String personGivenName = account.getGivenName();
             String personFamilyName = account.getFamilyName();
